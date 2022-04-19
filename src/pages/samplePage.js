@@ -1,4 +1,4 @@
-import createSampleView from '../views/sampleView.js';
+import createSampleView from "../views/sampleView.js";
 
 function createSamplePage() {
   const props = {

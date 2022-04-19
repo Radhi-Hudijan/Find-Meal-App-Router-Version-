@@ -1,6 +1,6 @@
 function createSampleView(props) {
-  const root = document.createElement('div');
-  root.className = 'sample-class';
+  const root = document.createElement("div");
+  root.className = "sample-class";
   root.innerHTML = String.raw`
     <!-- replace with your own definitions -->
   `;

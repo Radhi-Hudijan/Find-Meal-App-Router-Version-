@@ -64,7 +64,7 @@ index.html
 
 ## Live Demo
 
-- URL: https://radhi-hudijan.github.io/Find-Meal-APP/index.html
+- URL: https://radhi-hudijan.github.io/Find-Meal-App-Router-Version-/index.html
 
 ## Developed By
 

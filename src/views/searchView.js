@@ -1,4 +1,5 @@
 import createMealListView from "./mealListView.js";
+import createRecipeDetailsView from "./recipeDetailsView.js";
 
 function createSearchView(props) {
   const root = document.createElement("div");
@@ -26,9 +27,20 @@ function createSearchView(props) {
               </button>
           </div>
 
-          <div id="result-container"> 
-          
-        </div>
+          <div id="result-container"> </div>
+
+          <div class="meal-details">
+                  <!-- recipe close btn -->
+                      <button
+                        type="button"
+                        class="btn recipe-close-btn"
+                        id="recipe-close-btn">    
+                       <i class="fas fa-times"></i>
+                      </button>
+        
+                  <!-- meal content -->
+                  <div class="meal-details-content"></div>
+           </div>
     `;
 
   // Selecting the ingredient , Category or Area buttons & add event listener to them
@@ -51,6 +63,13 @@ function createSearchView(props) {
 
   const mealSearchBox = root.querySelector(".meal-search-box");
   const resultContainer = root.querySelector("#result-container");
+  const mealDetails = root.querySelector(".meal-details");
+
+  // selecting the close btn and add event listener to hide meal details
+  const recipeCloseBtn = root.querySelector(".recipe-close-btn");
+  recipeCloseBtn.addEventListener("click", () => {
+    mealDetails.classList.remove("showRecipe");
+  });
 
   const update = (state) => {
     if (state.error) {
@@ -88,6 +107,15 @@ function createSearchView(props) {
           " Sorry We did not find any meal! <br> Please try again ";
         resultContainer.classList.add("notFound");
       }
+    }
+    if (state.mealDetails) {
+      const recipeDetails = createRecipeDetailsView({
+        mealStructure: state.mealDetails,
+      });
+      const mealDetailsContent = root.querySelector(".meal-details-content");
+      mealDetailsContent.innerHTML = "";
+      mealDetailsContent.appendChild(recipeDetails.root);
+      mealDetails.classList.add("showRecipe");
     }
   };
 

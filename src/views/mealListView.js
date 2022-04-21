@@ -1,5 +1,3 @@
-import createRecipeDetailsView from "./recipeDetailsView.js";
-
 function createMealListView(props) {
   const root = document.createElement("div");
   root.className = "meal-list-container";
@@ -27,20 +25,12 @@ function createMealListView(props) {
     </div>`;
 
     const recipeBtn = li.querySelector("button");
-    recipeBtn.addEventListener("click", () => {
-      props.onGetRecipeClick(meal.idMeal);
-      console.log(props.mealDetails);
-      // const recipeContainer = root.querySelector(".recipe-container");
-      const recipeDetails = createRecipeDetailsView(props.mealDetails);
-
-      mealContainer.appendChild(recipeDetails.root);
-    });
+    recipeBtn.addEventListener("click", () =>
+      props.onGetRecipeClick(meal.idMeal)
+    );
 
     mealContainer.appendChild(li);
   });
-
-  // const recipeBtn = root.querySelector(".recipe-btn");
-  // recipeBtn.addEventListener("click", props.onGetRecipeClick);
 
   return { root };
 }

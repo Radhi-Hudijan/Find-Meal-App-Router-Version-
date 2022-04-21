@@ -1,12 +1,11 @@
 import data from "./data.js";
 import routes from "./pages/routes.js";
-// import routes from './example/pages/routes.js';
 import router from "./lib/router.js";
 import log from "./lib/logger.js";
 
 function loadApp() {
   // Set the desired log level
-  log.setLevel("debug");
+  log.setLevel("none");
   log.info("application", "started");
 
   const appRoot = document.getElementById("app-root");

@@ -14,6 +14,7 @@ function createSearchPage() {
       target: "category",
       showSearchBox: true,
       mealData: null,
+      mealDetails: null,
     };
     searchView.update(state);
   };
@@ -24,12 +25,19 @@ function createSearchPage() {
       target: "ingredients",
       showSearchBox: true,
       mealData: null,
+      mealDetails: null,
     };
     searchView.update(state);
   };
 
   const onAreaClick = () => {
-    state = { ...state, target: "area", showSearchBox: true, mealData: null };
+    state = {
+      ...state,
+      target: "area",
+      showSearchBox: true,
+      mealData: null,
+      mealDetails: null,
+    };
     searchView.update(state);
   };
 
@@ -68,7 +76,7 @@ function createSearchPage() {
       );
       const data = await response.json();
       state = { ...state, mealDetails: data.meals[0] };
-      // console.log(state.mealDetails);
+      console.log(state.mealDetails);
       searchView.update(state);
     } catch (error) {
       state = { ...state, error };
